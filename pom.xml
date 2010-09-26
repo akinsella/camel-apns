@@ -69,7 +69,7 @@
 		</snapshotRepository>
 		<site>
 			<id>camel-apns.site</id>
-			<url>dav:https://camel-apns.googlecode.com/svn/maven/site</url>
+			<url>ftp://ftp.helyx.org/site/camel-apns</url>
 		</site>
 	</distributionManagement>
 
@@ -221,8 +221,8 @@
 	
 	<repositories>
 		<repository>
-			<id>helyx.org-repo-release</id>
-			<name>Helyx.org Release Repository</name>
+			<id>camel-apns.repo-release</id>
+			<name>Camel-Apns Release Repository</name>
 			<url>http://camel-apns.googlecode.com/svn/maven/public/repository/release</url>
 			<snapshots>
 				<enabled>false</enabled>
@@ -324,6 +324,11 @@
 				<artifactId>wagon-webdav-jackrabbit</artifactId>
 				<version>1.0-beta-6</version>
 			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>1.0-alpha-6</version>
+			</extension>
 		</extensions>
 
 		<plugins>
@@ -378,6 +383,14 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<siteDirectory>etc/site</siteDirectory>
+				</configuration>
+			</plugin>  
 
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>
