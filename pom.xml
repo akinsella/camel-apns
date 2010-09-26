@@ -402,6 +402,56 @@
 				</executions>
 			</plugin>
 
+	        <plugin>
+				<groupId>com.google.code.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.4.0</version>
+	            <configuration>
+	                <basedir>${basedir}</basedir>
+	                <header>${basedir}/etc/license/template/apache-license-2.0-header.txt</header>
+	                <quiet>false</quiet>
+	                <failIfMissing>true</failIfMissing>
+	                <aggregate>false</aggregate>
+	                <includes>
+	                    <include>src/main/java/**</include>
+	                    <include>src/main/resources/**</include>
+	                    <include>src/test/java/**</include>
+	                    <include>src/test/resources/**</include>
+	                </includes>
+	                <excludes>
+	                    <include>src/test/java/**/ApnsServerStub.java</include>
+	                    <exclude>etc/CHANGELOG.txt</exclude>
+	                    <exclude>etc/INSTALL.txt</exclude>
+	                    <exclude>etc/LICENSE.txt</exclude>
+	                    <exclude>etc/README.txt</exclude>
+	                    <exclude>etc/license/**</exclude>
+	                    <exclude>target/**</exclude>
+	                    <exclude>**/*.p12</exclude>
+	                    <exclude>.svn/**</exclude>
+	                </excludes>
+	                <useDefaultExcludes>true</useDefaultExcludes>
+	                <mapping>
+	                    <xml>XML_STYLE</xml>
+	                    <java>JAVADOC_STYLE</java>
+					    <txt>TEXT</txt>
+	                </mapping>
+	                <useDefaultMapping>true</useDefaultMapping>
+	                <properties>
+	                    <year>2010</year>
+	                    <website>http://www.helyx.org</website>
+	                    <organization>Helyx.org</organization>
+	                    <author>Alexis Kinsella</author>
+	                </properties>
+	            </configuration>
+	            <executions>
+	                <execution>
+	                    <goals>
+	                        <goal>check</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	        </plugin>
+
 			<plugin>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>2.3</version>
